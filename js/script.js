@@ -4,18 +4,8 @@ $(document).ready(function () {
     mask: "+7 (999)-999-999-9",
   });
 
-  $("#subscribe-form").validate({
-    rules: {
-      email: {
-        required: true,
-        email: true,
-      },
-    },
-    messages: {
-      email: {
-        required: "Укажите корректный E-mail",
-      },
-    },
+  $(".leave-request-form").validate({
+
   });
 
 
@@ -100,6 +90,75 @@ $(document).ready(function () {
     });
   });
   
-  
+  $('.main-slider').slick({
+    dots: false,
+    arrows: false,
+    infinite: true,
+    speed: 500,
+    centerPadding: '60px',
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    centerMode: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          centerPadding: '20px',
+        }
+      },
+    ]
+  });
+
+  $('.concept-slider').slick({
+    dots: false,
+    arrows: false,
+    infinite: true,
+    speed: 500,
+    centerPadding: '60px',
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    centerMode: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          centerPadding: '20px',
+        }
+      },
+    ]
+  });
+
+  $('.about-slider').slick({
+    dots: false,
+    arrows: false,
+    infinite: true,
+    speed: 500,
+    centerPadding: '60px',
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    centerMode: true,
+    responsive: [
+      {
+        breakpoint: 1025,
+        settings: {
+          centerPadding: '20px',
+        }
+      },
+    ]
+  });
+
+  $(".info-wrapper .more").on("click", function(){
+    $(this).closest(".wrapper").find(".info-item").removeClass("hide");
+  })
+
+  $(".drop-icon").on("click", function(){
+    $(".menu-wrap").addClass("open");
+    $("body, html").addClass("overflow");
+  })
+
+  $(".menu-wrap .close").on("click", function(){
+    $(".menu-wrap").removeClass("open");
+    $("body, html").removeClass("overflow");
+  })
 
 });

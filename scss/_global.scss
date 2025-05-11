@@ -80,6 +80,16 @@ a {
    }
 }
 
+.wrapper-lend {
+  max-width: 1310px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  @media (max-width: 767px) {
+    padding: 0 10px;
+   }
+}
+
 .checkbox-wrap {
   label {
     @include flex;
@@ -247,18 +257,11 @@ a {
 }
 
 input.error {
-  @include placeholder {
-    color: #ff4b55 !important;
-  }
+  border-color: #f00 !important;
 }
 
 label.error {
-  color: #ff4b55;
-  position: absolute;
-  top: 110%;
-  left: 0;
-  z-index: 1;
-  font-size: 14px;
+  display: none !important;
 }
 
 .select-wrap {
@@ -494,3 +497,33 @@ label.error {
   z-index: 100;
 }
 
+.main-title{
+  font-size: 48px;
+  font-weight: bold;
+  color: #004F36;
+  @media (max-width: 1024px) {
+    font-size: 40px;
+   }
+   @media (max-width: 767px) {
+    font-size: 32px;
+   }
+   @media (max-width: 475px) {
+    font-size: 28px;
+   }
+}
+
+.border-btn{
+  padding: 16px 60px;
+  border: 1px solid #004F36;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1E1E1E;
+  @media (max-width: 767px) {
+    padding: 14px 60px;
+   }
+  &:hover{
+    background: #004F36;
+    color: white;
+  }
+}
