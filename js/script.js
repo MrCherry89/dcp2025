@@ -8,6 +8,73 @@ $(document).ready(function () {
 
   });
 
+  $(".login-form").validate({
+    submitHandler: function(form) {
+      // Переход на другую страницу при успешной валидации
+      window.location.href = "login2.html";
+    }
+  });
+
+  $(".code-form").validate({
+    submitHandler: function(form) {
+      // Переход на другую страницу при успешной валидации
+      window.location.href = "app-index2.html";
+    }
+  });
+
+  const grayStar = 'img/star-gray.svg';
+  const greenStar = 'img/star-green.svg';
+
+  document.querySelectorAll('.star-rating').forEach(ratingBlock => {
+    const stars = ratingBlock.querySelectorAll('.star');
+    let currentRating = 0;
+
+    stars.forEach((star, index) => {
+      star.addEventListener('click', () => {
+        currentRating = index + 1;
+
+        stars.forEach((s, i) => {
+          s.src = i < currentRating ? greenStar : grayStar;
+        });
+
+        // если нужно — можно сохранить рейтинг:
+        ratingBlock.dataset.rating = currentRating;
+      });
+    });
+  });
+
+  $('.popup').magnificPopup({
+    type: 'inline',
+    mainClass: 'mfp-fade'
+});
+
+const fileInput = document.getElementById('fileInput');
+const preview = document.getElementById('preview');
+const submitBtn = document.getElementById('submitBtn');
+
+if (fileInput && preview && submitBtn) {
+  fileInput.addEventListener('change', function() {
+    const file = this.files[0];
+
+    if (file && file.type.startsWith('image/')) {
+      const reader = new FileReader();
+
+      reader.onload = function(e) {
+        preview.src = e.target.result;
+        preview.style.display = 'block';
+        submitBtn.style.display = 'inline-block';
+      }
+
+      reader.readAsDataURL(file);
+    }
+  });
+
+  submitBtn.addEventListener('click', function() {
+    alert('Изображение отправлено!');
+    // Тут можно реализовать реальную отправку
+  });
+}
+
 
   $(".select-wrap select").select2({
     minimumResultsForSearch: 6,
@@ -17,6 +84,16 @@ $(document).ready(function () {
     dots: true,
     arrows: false,
     infinite: false,
+    speed: 700,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  });
+
+  $('.tenant-slider').slick({
+    dots: false,
+    arrows: false,
+    infinite: false,
+    variableWidth: true,
     speed: 700,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -109,6 +186,18 @@ $(document).ready(function () {
     ]
   });
 
+  $('.main-slider2').slick({
+    dots: false,
+    arrows: false,
+    infinite: true,
+    speed: 500,
+    centerPadding: '60px',
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    centerMode: true,
+    variableWidth: true,
+  });
+
   $('.concept-slider').slick({
     dots: false,
     arrows: false,
@@ -147,9 +236,19 @@ $(document).ready(function () {
     ]
   });
 
+  $(".cityes-btns .btn").on("click", function(){
+    $(".cityes-btns .btn").removeClass("active");
+    $(this).addClass("active");
+  })
+  
   $(".info-wrapper .more").on("click", function(){
     $(this).closest(".wrapper").find(".info-item").removeClass("hide");
   })
+
+  $(".sex .item").on("click", function(){
+    $(".sex .item").removeClass("active");
+    $(this).addClass("active");
+  });
 
   $(".drop-icon").on("click", function(){
     $(".menu-wrap").addClass("open");
@@ -160,5 +259,7 @@ $(document).ready(function () {
     $(".menu-wrap").removeClass("open");
     $("body, html").removeClass("overflow");
   })
+
+  
 
 });

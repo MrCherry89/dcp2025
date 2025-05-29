@@ -443,59 +443,62 @@ label.error {
   transition: 0s;
 }
 
-.popup {
-  position: absolute;
-  z-index: 1000;
-  width: 240px;
-  min-height: 260px;
-  border-radius: 8px;
-  border: 1px solid  #E5E7EB;
-  background: #FFF;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  padding: 10px;
-  transition: .3s;
-  .popup-info{
-    margin-top: 20px;
-    .top-info{
-      @include flex;
-      @include justify-between;
-      @include align-center;
-    }
-    .bottom-info{
-      @include flex;
-      @include justify-between;
-      @include align-center;
-      margin-top: 6px;
-      .price{
-        font-size: 18px;
-        color: #000;
+#popup{
+  .popup {
+    position: absolute;
+    z-index: 1000;
+    width: 240px;
+    min-height: 260px;
+    border-radius: 8px;
+    border: 1px solid  #E5E7EB;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    transition: .3s;
+    .popup-info{
+      margin-top: 20px;
+      .top-info{
+        @include flex;
+        @include justify-between;
+        @include align-center;
       }
-      .small-price{
-        color: #000;
-        font-size: 12px;
+      .bottom-info{
+        @include flex;
+        @include justify-between;
+        @include align-center;
+        margin-top: 6px;
+        .price{
+          font-size: 18px;
+          color: #000;
+        }
+        .small-price{
+          color: #000;
+          font-size: 12px;
+        }
+      }
+    }
+    .popup-slider{
+      margin-bottom: 0;
+      div{
+        @include flex;
+        img{
+          max-width: 100%;
+          max-height: 100%;
+        }
       }
     }
   }
-  .popup-slider{
-    margin-bottom: 0;
-    div{
-      @include flex;
-      img{
-        max-width: 100%;
-        max-height: 100%;
-      }
-    }
+  .hidden {
+    display: none;
+  }
+  #popup-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 100;
   }
 }
-.hidden {
-  display: none;
-}
-#popup-close {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  z-index: 100;
-}
+
 
 .main-title{
   font-size: 48px;
